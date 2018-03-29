@@ -28,6 +28,7 @@ using namespace std;
 enum DLL_API GestureType
 {
 	TYPE_ONE_FINGER,
+	TYPE_ONE_FINGER_MOVE,
 	TYPE_ONE_FINGER_RETAIN,
 	TYPE_OPEN,
 	TYPE_OPEN_RETAIN,
@@ -71,6 +72,7 @@ public:
 	//void setGestureEventsHandler(GestureEventHandler * handler);
 	void setType(GestureType type);
 	virtual void onFingerMove(GestureArgs * args){}
+	virtual void onFingerRetain(GestureArgs * args){}
 	virtual void onFingerTouch(GestureArgs * args){}
 
 	virtual void onGrab(GestureArgs * args){}

@@ -107,7 +107,7 @@ void CVHelper::draw(UINT16 * depthData, Hand * leftHand, Hand * rightHand)
 			
 		drawPoint(rightHand->HandTip, cvScalar(0, 0, 255), 5);
 		drawPoint(rightHand->HandCenter, cvScalar(0, 255, 0), 5);
-		drawPoint(rightHand->FingerTip, cvScalar(255, 255, 0), 15);
+		drawPoint(rightHand->FingerTip, cvScalar(255, 255, 0), 5);
 		drawPoint(rightHand->HandThumb, cvScalar(255, 0, 0), 5);
 		//drawPoint(rightHand->HandWrist, cvScalar(255, 255, 0), 5);
 	}

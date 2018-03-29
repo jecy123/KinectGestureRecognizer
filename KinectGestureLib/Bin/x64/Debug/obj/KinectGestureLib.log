@@ -1,5 +1,43 @@
-﻿生成启动时间为 2018/3/28 14:30:40。
+﻿生成启动时间为 2018/3/29 10:54:50。
+     1>项目“D:\Programming\KinectGestureRecognizer\KinectGestureLib\KinectGestureLib.vcxproj”在节点 2 上(Build 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(356,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(357,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /ID:\Programming\KinectGestureRecognizer\KinectGestureLib\..\openCV\inc /I"D:\Programming\KinectGestureRecognizer\KinectGestureLib\..\Kinect SDK\inc" /ID:\Programming\KinectGestureRecognizer\KinectGestureLib\\Include /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D KINECTGESTURELIB_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Bin\x64\Debug\obj\\" /Fd".\Bin\x64\Debug\obj\vc120.pdb" /Gd /TP /errorReport:prompt Src\GestureRecgnition.cpp
+         GestureRecgnition.cpp
+     1>d:\programming\kinectgesturerecognizer\kinectgesturelib\include\utils.h(21): warning C4244: “初始化”: 从“double”转换到“const float”，可能丢失数据
+     1>d:\programming\kinectgesturerecognizer\kinectgesturelib\include\Hand.h(57): warning C4251: “Hand::HandOutline”: class“std::vector<HandPoint,std::allocator<_Ty>>”需要有 dll 接口由 class“Hand”的客户端使用
+                 with
+                 [
+                     _Ty=HandPoint
+                 ]
+     1>d:\programming\kinectgesturerecognizer\kinectgesturelib\include\Hand.h(58): warning C4251: “Hand::HandFingers”: class“std::vector<HandPoint,std::allocator<_Ty>>”需要有 dll 接口由 class“Hand”的客户端使用
+                 with
+                 [
+                     _Ty=HandPoint
+                 ]
+     1>d:\programming\kinectgesturerecognizer\kinectgesturelib\include\GestureArgs.h(185): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>d:\programming\kinectgesturerecognizer\kinectgesturelib\include\GestureArgs.h(222): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+     1>d:\programming\kinectgesturerecognizer\kinectgesturelib\include\GestureArgs.h(230): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>d:\programming\kinectgesturerecognizer\kinectgesturelib\include\GestureArgs.h(366): warning C4251: “GestureArgs::leftHand”: struct“_HandArgs”需要有 dll 接口由 class“GestureArgs”的客户端使用
+                 d:\programming\kinectgesturerecognizer\kinectgesturelib\include\GestureArgs.h(132) : 参见“_HandArgs”的声明
+     1>d:\programming\kinectgesturerecognizer\kinectgesturelib\include\GestureArgs.h(367): warning C4251: “GestureArgs::rightHand”: struct“_HandArgs”需要有 dll 接口由 class“GestureArgs”的客户端使用
+                 d:\programming\kinectgesturerecognizer\kinectgesturelib\include\GestureArgs.h(132) : 参见“_HandArgs”的声明
+     1>D:\Programming\KinectGestureRecognizer\KinectGestureLib\Include\GestureRecgnition.h(109): warning C4251: “GestureRecgnition::file”: class“std::basic_ofstream<char,std::char_traits<char>>”需要有 dll 接口由 class“GestureRecgnition”的客户端使用
+     1>Src\GestureRecgnition.cpp(511): warning C4553: “==”: 运算符不起任何作用；是否是有意使用“=”的?
+     1>Src\GestureRecgnition.cpp(534): warning C4553: “==”: 运算符不起任何作用；是否是有意使用“=”的?
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:".\Bin\x64\Debug\KinectGesture_Debug.dll" /INCREMENTAL /NOLOGO /LIBPATH:D:\Programming\KinectGestureRecognizer\KinectGestureLib\..\openCV\lib\x64 /LIBPATH:"D:\Programming\KinectGestureRecognizer\KinectGestureLib\..\Kinect SDK\Lib\x64" opencv_core249d.lib Kinect20.Face.lib Kinect20.Fusion.lib Kinect20.lib Kinect20.VisualGestureBuilder.lib opencv_highgui249d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\Bin\x64\Debug\KinectGesture_Debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Bin\x64\Debug\KinectGesture_Debug.lib" /MACHINE:X64 /DLL .\Bin\x64\Debug\obj\CVHelper.obj
+         .\Bin\x64\Debug\obj\GestureArgs.obj
+         .\Bin\x64\Debug\obj\GestureRecgnition.obj
+         .\Bin\x64\Debug\obj\Hand.obj
+         .\Bin\x64\Debug\obj\HandPoint.obj
+         .\Bin\x64\Debug\obj\KinectHelper.obj
+         .\Bin\x64\Debug\obj\utils.obj
+         .\Bin\x64\Debug\obj\Vector.obj
+         KinectGestureLib.vcxproj -> D:\Programming\KinectGestureRecognizer\KinectGestureLib\.\Bin\x64\Debug\KinectGesture_Debug.dll
+     1>已完成生成项目“D:\Programming\KinectGestureRecognizer\KinectGestureLib\KinectGestureLib.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:00.04
+已用时间 00:00:02.00

@@ -33,14 +33,26 @@ void GestureArgs::reset()
 
 void GestureArgs::refreshData(Hand * leftHand, Hand * rightHand, unsigned long time)
 {
-
-	this->setXYZ(
-		leftHand->HandCenter.m_depthX,
-		leftHand->HandCenter.m_depthY,
-		leftHand->HandCenter.m_cameraZ * 1000,
-		rightHand->HandCenter.m_depthX,
-		rightHand->HandCenter.m_depthY,
-		rightHand->HandCenter.m_cameraZ * 1000, time);
+	if (rightHand->m_handState == HandState_Lasso)
+	{
+		this->setXYZ(
+			leftHand->HandCenter.m_depthX,
+			leftHand->HandCenter.m_depthY,
+			leftHand->HandCenter.m_cameraZ * 1000,
+			rightHand->FingerTip.m_depthX,
+			rightHand->FingerTip.m_depthY,
+			rightHand->FingerTip.m_cameraZ * 1000, time);
+	}
+	else
+	{
+		this->setXYZ(
+			leftHand->HandCenter.m_depthX,
+			leftHand->HandCenter.m_depthY,
+			leftHand->HandCenter.m_cameraZ * 1000,
+			rightHand->HandCenter.m_depthX,
+			rightHand->HandCenter.m_depthY,
+			rightHand->HandCenter.m_cameraZ * 1000, time);
+	}
 
 	this->setTipXYZ(
 		leftHand->HandTip.m_depthX,

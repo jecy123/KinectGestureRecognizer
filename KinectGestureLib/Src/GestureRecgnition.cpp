@@ -171,6 +171,10 @@ void GestureRecgnition::changeState()
 			onGrab(args);
 			m_type = TYPE_GRAB;
 		}
+		else if (this->rightHand->m_handState == HandState_Lasso)
+		{
+			m_type = TYPE_ONE_FINGER;
+		}
 		else
 		{
 			if (args->isMove()){
@@ -479,6 +483,55 @@ void GestureRecgnition::changeState()
 				m_type = TYPE_ZOOM;
 			}
 			break;
+		}
+	}
+
+	if (m_type == TYPE_ONE_FINGER)
+	{
+		gotoXY(0, 17);
+		cout << "ONE FINGER       ";
+		if (args->isMove() || args->isSwip())
+		{
+			m_type = TYPE_ONE_FINGER_MOVE;
+		}
+	}
+	if (m_type == TYPE_ONE_FINGER_RETAIN)
+	{
+		onFingerRetain(args);
+		gotoXY(0, 17);
+		cout << "ONE FINGER RETAIN        "; 
+		if (this->rightHand->m_handState == HandState_Closed)
+		{
+			//触发握拳动作
+			onGrab(args);
+			m_type = TYPE_GRAB;
+		}
+		else if (this->rightHand->m_handState == HandState_Open)
+		{
+			m_type == TYPE_OPEN;
+		}
+	}
+	if (m_type == TYPE_ONE_FINGER_MOVE)
+	{
+
+		onFingerMove(args);
+		gotoXY(0, 17);
+		cout << "ONE FINGER MOVE        "; 
+		
+//		if (args->getRetainTime() >= 50)
+//		{
+//			m_type = TYPE_ONE_FINGER_RETAIN;
+//		}
+		
+		if (this->rightHand->m_handState == HandState_Closed)
+		{
+			//触发握拳动作
+			onGrab(args);
+			m_type = TYPE_GRAB;
+		}
+		else if (this->rightHand->m_handState == HandState_Open)
+		{
+			m_type == TYPE_OPEN;
 		}
 	}
 	//if (m_type == TYPE_ZOOM)
