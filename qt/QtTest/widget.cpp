@@ -25,7 +25,7 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
 
     foreach (BaseWidget * widget, this->widgets) {
         connect(widget,SIGNAL(display(int)), this->stackLayout, SLOT(setCurrentIndex(int)));
-        connect(widget,SIGNAL(display(int)),this,SLOT(changeView(int)));
+        connect(widget,SIGNAL(display(int)), this, SLOT(changeView(int)));
     }
     this->mainLayout = new QVBoxLayout;
     this->mainLayout->addLayout(this->stackLayout);
@@ -49,7 +49,8 @@ void Widget::setKinectImpl(KinectImpl * impl)
     {
         foreach (BaseWidget* widget, this->widgets)
         {
-            connect(this->kinectimpl, &KinectImpl::fingerMove, widget , &BaseWidget::cursorPosMove);
+            connect(this->kinectimpl, &KinectImpl::fingerMove, widget , &BaseWidget::fingerCursorPosMove);
+            connect(this->kinectimpl, &KinectImpl::fingerTouched, widget , &BaseWidget::fingerCursorTouched);
             connect(this->kinectimpl, &KinectImpl::handMove, widget, &BaseWidget::cursorPosMove);
             connect(this->kinectimpl, &KinectImpl::fistMove, widget, &BaseWidget::catchMove);
             connect(this->kinectimpl, &KinectImpl::fistGrab, widget, &BaseWidget::cursorCatched);
@@ -73,6 +74,7 @@ void Widget::changeView(int num)
 {
     qDebug()<<num;
     this->currentViewIndex = num;
+    //this->widgets.at(num)->setCursor(10, 10);
 }
 
 

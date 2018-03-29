@@ -34,6 +34,16 @@ void KinectImpl::stop()
 }
 
 
+void KinectImpl::onFingerMove(GestureArgs * args)
+{
+    emit fingerMove(args->rightHand.dx, args->rightHand.dy);
+}
+
+void KinectImpl::onFingerRetain(GestureArgs * args)
+{
+    emit fingerTouched();
+}
+
 void KinectImpl::onRelease(GestureArgs *args)
 {
 

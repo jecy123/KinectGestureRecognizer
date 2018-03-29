@@ -7,7 +7,6 @@ using namespace std;
 
 MenuWidget::MenuWidget(QWidget *parent):BaseWidget(parent)
 {
-    //this->setWindow(1024, 576);
     initViews();
     this->setWindowFlags(Qt::WindowCloseButtonHint);
     this->widgetWidth = ScreenUtils::widgetWidth;
@@ -106,6 +105,10 @@ void MenuWidget::clickedAt(int x, int y)
     if (buttonPicture->geometry().contains(cursorPos.x(), cursorPos.y()))
     {
         onBtnPicturePushed();
+    }
+    if (buttonGestureRecognizor->geometry().contains(cursorPos.x(), cursorPos.y()))
+    {
+        onBtnGesturePushed();
     }
 }
 

@@ -9,7 +9,7 @@
 PictureView::PictureView(QWidget *parent) : BaseWidget(parent)
 {
     qDebug() << "PictureView" << endl;
-
+    this->setWindow(1024, 576);
 //    QLabel * nLabel = new QLabel(this);
 //    nLabel->setText("asdasdasd");
 //    nLabel->setGeometry(20,20,180,40);

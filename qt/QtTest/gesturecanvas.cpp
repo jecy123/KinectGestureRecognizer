@@ -1,12 +1,22 @@
 #include "gesturecanvas.h"
+#include <QDebug>
 
 GestureCanvas::GestureCanvas(QWidget * parent): QLabel(parent)
 {
 
     this->mPoints.clear();
-    this->mPenSize = 1;
+    this->mPenSize = 4;
     this->mGestureTracked = false;
     this->mHandler = NULL;
+    this->mCurrentPoint.setX(500);
+    this->mCurrentPoint.setY(400);
+
+    handMap.load("./Hand/Hand.jpg");
+    handCursor = new QLabel(this);
+    handCursor->setScaledContents(true);
+    handCursor->setPixmap(handMap);
+    handCursor->setGeometry(mCurrentPoint.x() - 10,mCurrentPoint.y() - 10, 20, 20);
+    //handCursor
 }
 
 GestureCanvas::~GestureCanvas()
@@ -54,6 +64,12 @@ int GestureCanvas::getPoints(vector< vector<QPoint> > * points)
         points->push_back(line);
     }
     return points->size();
+}
+
+
+QPoint & GestureCanvas::getCurrentPoint()
+{
+    return mCurrentPoint;
 }
 
 void GestureCanvas::fillLine(int index)
@@ -166,41 +182,80 @@ void GestureCanvas::fillLines()
 
 
 
-void GestureCanvas::onGestureTrakeBegin()
+void GestureCanvas::onGestureTrackBegin()
 {
-
+    qDebug() << "track begin...";
+    this->mGestureTracked = true;
+    vector<QPoint> line;
+    line.push_back(this->mCurrentPoint);
+    this->mPoints.push_back(line);
+    this->repaint();
 }
 
-void GestureCanvas::onGestureTraking()
+void GestureCanvas::onGestureTracking()
 {
-
+    qDebug() << "tracking...";
+    if(mGestureTracked && this->mPoints.size() > 0)
+    {
+        this->mPoints[this->mPoints.size() - 1].push_back(this -> mCurrentPoint);
+        this->repaint();
+    }
 }
 
-void GestureCanvas::onGestureTrakkEnd()
+void GestureCanvas::onGestureTrackEnd()
 {
+    qDebug() << "track end...";
+    this -> mGestureTracked = false;
+    //this -> fillLines();
+    this->clear();
+    this -> repaint();
+
+    if(this -> mHandler)
+    {
+        mHandler->onFinishGesture(&mPoints);
+    }
 }
 
 void GestureCanvas::paintEvent(QPaintEvent * e)
 {
     QPainter painter(this);
-    QPen pen;
-
     painter.fillRect(QRect(0, 0, this->width(), this->height()),QColor(255, 255, 255));
-
-    pen.setColor(QColor(0, 0, 0));
-    pen.setWidth(mPenSize);
-
-    painter.setPen(pen);
-
-    int lCnt = mPoints.size();
-    for (int i = 0; i < lCnt; i++)
+    if(mGestureTracked)
     {
-        int pCnt = mPoints.at(i).size();
-        for (int j = 0; j < pCnt; j++)
+        this->handCursor->setHidden(true);
+        QPen pen;
+
+
+        pen.setColor(QColor(0, 0, 0));
+        pen.setWidth(mPenSize);
+        painter.setPen(pen);
+        int lCnt = mPoints.size();
+        for (int i = 0; i < lCnt; i++)
         {
-            painter.drawPoint(mPoints.at(i).at(j));
+            int pCnt = mPoints.at(i).size();
+            for (int j = 0; j < pCnt - 1; j++)
+            {
+                painter.drawLine(mPoints.at(i).at(j), mPoints.at(i).at(j+1));
+                //painter.drawPoint(mPoints.at(i).at(j));
+            }
         }
     }
+    else
+    {
+        this->handCursor->setHidden(false);
+        handCursor->setGeometry(mCurrentPoint.x() - 10,mCurrentPoint.y() - 10, 20, 20);
+    }
+}
 
 
+void GestureCanvas::setCursorPos(int x, int y)
+{
+    mCurrentPoint.setX(x);
+    mCurrentPoint.setY(y);
+}
+
+
+bool GestureCanvas::isGesureTracked()
+{
+    return this->mGestureTracked;
 }

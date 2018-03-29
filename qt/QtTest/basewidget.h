@@ -30,6 +30,8 @@ protected:
 signals:
     void display(int index);
 public slots:
+    virtual void fingerCursorPosMove(int dx, int dy);
+    virtual void fingerCursorTouched();
     virtual void cursorPosMove(int dx, int dy);
     virtual void catchMove(int dx, int dy);
     virtual void cursorCatched(int x, int y, int dx, int dy, float vx, float vy, float vz);

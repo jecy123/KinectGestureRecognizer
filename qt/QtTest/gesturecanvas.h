@@ -14,7 +14,7 @@ using namespace std;
 class GestureCanvasEventHandler
 {
 public:
-    virtual void onFinishGesture() = 0;
+    virtual void onFinishGesture(vector< vector<QPoint> > * points) = 0;
 };
 
 class GestureCanvas : public QLabel
@@ -28,21 +28,26 @@ public:
     void setPenSize(int penSize);
     void setEventHandler(GestureCanvasEventHandler * handler);
     int getPoints(vector< vector<QPoint> > * points);
+    QPoint & getCurrentPoint();
     void fillLine(int index);
     void fillLines();
+    void setCursorPos(int x, int y);
+    bool isGesureTracked();
 private:
     vector< vector<QPoint> > mPoints;
     int mPenSize;
-    int mGestureTracked;
+    bool mGestureTracked;
     GestureCanvasEventHandler * mHandler;
 
     QPoint mCurrentPoint;
+    QPixmap handMap;
+    QLabel * handCursor;
 
 public slots:
 
-    void onGestureTrakeBegin();
-    void onGestureTraking();
-    void onGestureTrakkEnd();
+    void onGestureTrackBegin();
+    void onGestureTracking();
+    void onGestureTrackEnd();
 
     void paintEvent(QPaintEvent * e);
 };

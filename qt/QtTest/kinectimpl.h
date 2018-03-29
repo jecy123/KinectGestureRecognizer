@@ -11,6 +11,8 @@ class KinectImpl : public QObject, public GestureRecgnition
 public:
     explicit KinectImpl(QObject *parent = 0);
     ~KinectImpl();
+    void onFingerMove(GestureArgs * args);
+    void onFingerRetain(GestureArgs * args);
     void onRelease(GestureArgs *args);
     void onGrab(GestureArgs *args);
     void onClicked(GestureArgs *args);
@@ -29,7 +31,7 @@ public:
     void onPageTurning(GestureArgs *args);
 signals:
     void fingerMove(int dx, int dy);
-    void fingerTouch();
+    void fingerTouched();
     void handPushed();
     void handMove(int dx, int dy);
     void fistMove(int dx, int dy);

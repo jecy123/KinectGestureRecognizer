@@ -70,6 +70,15 @@ void BaseWidget::setCursor(int x,int y)
     this->update();
 }
 
+
+void BaseWidget::fingerCursorPosMove(int dx, int dy)
+{
+}
+
+void BaseWidget::fingerCursorTouched()
+{
+}
+
 void BaseWidget::cursorPosMove(int dx, int dy)
 {
 }
@@ -134,3 +143,4 @@ void BaseWidget::cursorWavedRight(int dx)
 {
 
 }
+
