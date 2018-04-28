@@ -1,6 +1,12 @@
 #include "gestureview.h"
 #include "screenutils.h"
 #include <QDebug>
+#include <sgr.h>
+#include <QTime>
+
+using namespace sgr;
+
+static Recognizer g_sgr;
 
 
 GestureView::GestureView(QWidget * parent): BaseWidget(parent)
@@ -8,8 +14,10 @@ GestureView::GestureView(QWidget * parent): BaseWidget(parent)
     qDebug() << "GestureView" << endl;
     //handMap.load("./Hand/Hand.jpg");
 
-    mCanvasWidth = 1000;
-    mCanvasHeight = 800;
+    g_sgr.init("simple-gesture.model");
+
+    mCanvasWidth = 800;
+    mCanvasHeight = 600;
 
     initViews();
 
@@ -26,6 +34,17 @@ void GestureView::initViews()
 
     canvas = new GestureCanvas(this);
     canvas->setGeometry(0, canvasY, mCanvasWidth, mCanvasHeight);
+    canvas->setEventHandler(this);
+
+    int listW = 200;
+    int listX = mCanvasWidth + (ScreenUtils::widgetWidth - mCanvasWidth - listW) / 2;
+
+    mList = new QListWidget(this);
+    mList->setGeometry(listX, canvasY, listW, mCanvasHeight);
+    mList->setFont(QFont("Times New Roman", 18));
+
+    mDelayTest = new QLabel(this);
+    mDelayTest->setGeometry(listX, canvasY - 80, listW, 60);
 
 //    this->handCursor = new QLabel(this);
 //    this->handCursor->setScaledContents(true);
@@ -119,5 +138,44 @@ void GestureView::setCursor(int dx, int dy)
     }
 
     this->canvas->setCursorPos(x, y);
+}
+
+
+void GestureView::onFinishGesture(vector<vector<QPoint> > *points)
+{
+    qDebug() << "Finish......................................." << endl;
+    QTime now = QTime::currentTime();
+    now.start();
+
+    if (points && canvas && g_sgr.ready())
+    {
+        vector<string> wordlist;
+
+        Character cha;
+
+        int lCnt = points->size();
+        for (int i = 0; i < lCnt; i++)
+        {
+            int pCnt = points->at(i).size();
+            for (int j = 0; j < pCnt; j++)
+            {
+                cha.add(i, points->at(i).at(j).x(), points->at(i).at(j).y());
+            }
+        }
+
+        g_sgr.recognize(&cha, &wordlist, 2, 1);
+
+        int cnt = wordlist.size();
+
+        if (cnt > 10)
+            cnt = 10;
+
+        mList->clear();
+        for (int i = 0; i < cnt; i++)
+        {
+            qDebug() << QString::fromStdString(wordlist[i]) << endl;
+            mList->addItem(QString::number(i) + ": " +  QString::fromStdString(wordlist[i]));
+        }
+    }
 }
 

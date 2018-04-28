@@ -1,0 +1,12 @@
+﻿生成启动时间为 2018/4/28 16:00:28。
+     1>项目“F:\Programming\version2\KinectGestureRecognizer\KinectGestureTest\KinectGestureTest.vcxproj”在节点 2 上(Build 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(356,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(357,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:".\Bin\x64\KinectGestureTest.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\Programming\version2\KinectGestureRecognizer\KinectGestureTest\..\KinectGestureLib\Bin\x64\Debug /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win64" KinectGesture_Debug.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\Bin\x64\KinectGestureTest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Bin\x64\KinectGestureTest.lib" /MACHINE:X64 .\Bin\x64\obj\main.obj
+         KinectGestureTest.vcxproj -> F:\Programming\version2\KinectGestureRecognizer\KinectGestureTest\.\Bin\x64\KinectGestureTest.exe
+     1>已完成生成项目“F:\Programming\version2\KinectGestureRecognizer\KinectGestureTest\KinectGestureTest.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.46

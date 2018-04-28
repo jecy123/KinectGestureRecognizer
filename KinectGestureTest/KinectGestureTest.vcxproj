@@ -72,18 +72,19 @@
     <IntDir>.\Bin\x86\obj</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryWPath>$(ProjectDir)..\openCV\dll;$(LibraryWPath)</LibraryWPath>
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>.\Bin\x64</OutDir>
+    <IntDir>.\Bin\x64\obj</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>.\Bin\x86</OutDir>
     <IntDir>.\Bin\x86\obj</IntDir>
-    <LibraryWPath>$(ProjectDir)..\openCV\dll;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryWPath>$(ProjectDir)..\openCV\dll;$(LibraryWPath)</LibraryWPath>
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>.\Bin\x64</OutDir>
+    <IntDir>.\Bin\x64\obj</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

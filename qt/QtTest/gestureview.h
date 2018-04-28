@@ -8,14 +8,18 @@
 #include <QRect>
 #include <QPixmap>
 #include <QPaintEvent>
+#include <QListWidget>
 
-class GestureView : public BaseWidget
+class GestureView : public BaseWidget, public GestureCanvasEventHandler
 {
     Q_OBJECT
 public:
     explicit GestureView(QWidget * parent = 0);
     ~GestureView();
     void initViews();
+
+    void onFinishGesture(vector<vector<QPoint> > *points);
+
 signals:
 public slots:
     //void fingerCursorPosMove(int dx, int dy);
@@ -33,6 +37,10 @@ private:
     int mCanvasHeight;
     QPixmap handMap;
     QLabel * handCursor;
+    QListWidget * mList;
+    QLabel * mDelayTest;
+    QLabel * mListTitle;
+
 };
 
 #endif // GESTUREVIEW_H

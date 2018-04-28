@@ -34,8 +34,9 @@ HEADERS  += basewidget.h \
     gestureview.h
 
 
-LIBS += "..\..\KinectGestureLib\Bin\x64\Debug\KinectGesture_Debug.lib"
 LIBS += "..\..\Kinect SDK\Lib\x64\Kinect20.lib"
+LIBS += "..\..\KinectGestureLib\Bin\x64\Debug\KinectGesture_Debug.lib"
+LIBS += "..\..\sgr\sgrLib\Windows\x64\sgrd.lib"
 #LIBS += -L "C:\OpenCV\opencv\build\x64\vc12\lib"
 
 DEPENDPATH +="..\..\openCV\lib\x64"
@@ -43,3 +44,4 @@ DEPENDPATH +="..\..\openCV\lib\x64"
 INCLUDEPATH += "..\..\KinectGestureLib\Include"
 INCLUDEPATH += "..\..\openCV\inc"
 INCLUDEPATH += "..\..\Kinect SDK\inc"
+INCLUDEPATH += "..\..\sgr\sgrLib"

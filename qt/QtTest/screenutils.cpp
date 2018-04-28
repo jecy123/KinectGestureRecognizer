@@ -2,8 +2,8 @@
 #include <QApplication>
 #include <QDesktopWidget>
 
-int ScreenUtils::widgetWidth = 1400;
-int ScreenUtils::widgetHeight = 900;
+int ScreenUtils::widgetWidth = 1300;
+int ScreenUtils::widgetHeight = 700;
 
 ScreenUtils::ScreenUtils()
 {

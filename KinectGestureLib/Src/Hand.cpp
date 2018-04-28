@@ -23,6 +23,7 @@ Hand::Hand()
 	initHandArray();
 	initVisited();
 	maxDis = 0;
+	m_depthThreshold = cThreshold;
 }
 
 
@@ -87,7 +88,8 @@ void Hand::getHandArea(ICoordinateMapper * mapper, UINT16 * depthArray)
 		{
 			int k = i * cDepthWidth + j;
 			float CameradepthZ = getCameraZFromDepthXY(mapper, j, i, depthArray[k]);
-			if (CameradepthZ >= this->HandCenter.m_cameraZ - depthThreshold && CameradepthZ <= this->HandCenter.m_cameraZ + depthThreshold)
+			float threshold = m_depthThreshold / 1000;
+			if (CameradepthZ >= this->HandCenter.m_cameraZ - threshold && CameradepthZ <= this->HandCenter.m_cameraZ + threshold)
 			{
 				m_pHandAreaArray[i][j] = true;
 			}
@@ -552,4 +554,9 @@ void Hand::findNextXY(const int & oldX, const int & oldY, int & newX, int & newY
 		newX = -1;
 		newY = -1;
 	}
+}
+
+void Hand::addThreshold(float val)
+{
+	this->m_depthThreshold += val;
 }

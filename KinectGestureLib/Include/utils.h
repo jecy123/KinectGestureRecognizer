@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <cmath>
 #include <chrono>
+#include <iomanip>
 #include <vector>
 
 using namespace cv;
@@ -17,8 +18,9 @@ using namespace std;
 
 static const int cDepthWidth = 512;
 static const int cDepthHeight = 424;
-static const float cThreshold = 40;
-static const float depthThreshold = cThreshold / 1000.0;
+
+static float cThreshold = 40;
+static float depthThreshold = cThreshold / 1000;
 
 //手势的各种阈值：
 static const double cFingerTouchZ = -0.65;

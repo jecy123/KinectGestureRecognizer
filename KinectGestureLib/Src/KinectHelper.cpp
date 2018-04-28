@@ -40,9 +40,71 @@ HRESULT KinectHelper::UpdateFrame()
 		{
 			m_pCVHelper->draw(m_pDepthArray, m_pLeftHand, m_pRightHand);
 			m_pCVHelper->show();
-			if (m_pCVHelper->getKeyPressed() == VK_ESCAPE)
+			int key = m_pCVHelper->getKeyPressed();
+			if (key == VK_ESCAPE)
 			{
+				cout << "exit" << endl;
 				m_bRunning = false;
+			}
+			else if (key == 'z')
+			{
+				m_pCVHelper->setShowType(SHOW_TYPE_HAND);
+			}
+			else if (key == 'x')
+			{
+				m_pCVHelper->setShowType(SHOW_TYPE_HAND_OUTLINE);
+			}
+			else if (key == 'c')
+			{
+				if (m_pCVHelper->showHandCenter)
+				{
+					m_pCVHelper->showHandCenter = false;
+				}
+				else
+				{
+					m_pCVHelper->showHandCenter = true;
+				}
+			}
+			else if (key == 'l')
+			{
+				if (m_pCVHelper->showLeftHandFlag)
+				{
+					m_pCVHelper->showLeftHandFlag = false;
+				}
+				else
+				{
+					m_pCVHelper->showLeftHandFlag = true;
+				}
+			}
+			else if (key == 'r')
+			{
+				if (m_pCVHelper->showRightHandFlag)
+				{
+					m_pCVHelper->showRightHandFlag = false;
+				}
+				else
+				{
+					m_pCVHelper->showRightHandFlag = true;
+				}
+			}
+			else if (key == 'q')
+			{
+				m_pCVHelper->ROIShot();
+			}
+			else if (key == KeyCode_UP)
+			{
+				m_pCVHelper->addHandThreshold(1);
+			}
+			else if (key == KeyCode_DOWN)
+			{
+				m_pCVHelper->addHandThreshold(-1);
+			}
+			else
+			{
+				if (key != -1)
+				{
+					cout << key << endl;
+				}
 			}
 		}
 

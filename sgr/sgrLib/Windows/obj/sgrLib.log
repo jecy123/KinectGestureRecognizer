@@ -1,5 +1,53 @@
-﻿生成启动时间为 2018/3/28 14:44:26。
+﻿生成启动时间为 2018/3/29 19:01:17。
+     1>项目“F:\Programming\version2\KinectGestureRecognizer\sgr\sgrLib\sgrLib.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(356,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(357,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files (x86)\Visual Leak Detector\include" /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Windows\obj\\" /Fd".\Windows\obj\vc120.pdb" /Gd /TP /errorReport:prompt sgr.cpp sgr_character.cpp sgr_recognizer.cpp sgr_stroke.cpp
+         sgr_stroke.cpp
+     1>sgr_stroke.cpp(20): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_stroke.cpp(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_stroke.cpp(34): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_stroke.cpp(44): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_stroke.cpp(148): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+         sgr_recognizer.cpp
+     1>sgr_recognizer.cpp(55): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_recognizer.cpp(77): warning C4244: “初始化”: 从“std::streamoff”转换到“int”，可能丢失数据
+     1>sgr_recognizer.cpp(203): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_recognizer.cpp(216): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_recognizer.cpp(224): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_recognizer.cpp(272): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_recognizer.cpp(347): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_recognizer.cpp(355): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_recognizer.cpp(400): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_recognizer.cpp(468): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_recognizer.cpp(474): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+         sgr_character.cpp
+     1>sgr_character.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>sgr_character.cpp(60): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_character.cpp(82): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_character.cpp(113): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_character.cpp(122): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_character.cpp(131): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_character.cpp(149): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_character.cpp(153): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_character.cpp(177): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_character.cpp(180): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_character.cpp(195): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_character.cpp(198): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr_character.cpp(207): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+         sgr.cpp
+     1>sgr.cpp(26): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>sgr.cpp(27): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+         正在生成代码...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\Lib.exe /OUT:".\Windows\x64\sgrd.lib" /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win64" /NOLOGO /MACHINE:X64 .\Windows\obj\sgr.obj
+         .\Windows\obj\sgr_character.obj
+         .\Windows\obj\sgr_recognizer.obj
+         .\Windows\obj\sgr_stroke.obj
+         sgrLib.vcxproj -> F:\Programming\version2\KinectGestureRecognizer\sgr\sgrLib\.\Windows\x64\sgrd.lib
+     1>已完成生成项目“F:\Programming\version2\KinectGestureRecognizer\sgr\sgrLib\sgrLib.vcxproj”(Rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:00.02
+已用时间 00:00:10.83

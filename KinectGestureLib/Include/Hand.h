@@ -33,6 +33,7 @@ public:
 //	void checkFingerPoint(ICoordinateMapper * mapper, UINT16 * depthArray);
 	void checkFingerPoint();
 	void setHandType(__handType type);
+	void addThreshold(float val);
 
 	//void refreshHandAreaArray();
 	HandPoint	HandCenter;
@@ -56,6 +57,9 @@ public:
 	//bool		m_pHandOutLineArray[cDepthHeight][cDepthWidth];
 	vector < HandPoint > HandOutline;
 	vector < HandPoint > HandFingers;
+
+	float m_depthThreshold;
+
 private:
 
 	bool				m_visited[cDepthHeight][cDepthWidth];

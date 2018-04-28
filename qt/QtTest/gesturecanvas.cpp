@@ -206,14 +206,16 @@ void GestureCanvas::onGestureTrackEnd()
 {
     qDebug() << "track end...";
     this -> mGestureTracked = false;
-    //this -> fillLines();
-    this->clear();
+    this -> fillLines();
     this -> repaint();
 
     if(this -> mHandler)
     {
         mHandler->onFinishGesture(&mPoints);
     }
+
+
+    this->clear();
 }
 
 void GestureCanvas::paintEvent(QPaintEvent * e)
@@ -252,6 +254,7 @@ void GestureCanvas::setCursorPos(int x, int y)
 {
     mCurrentPoint.setX(x);
     mCurrentPoint.setY(y);
+    this->repaint();
 }
 
 
